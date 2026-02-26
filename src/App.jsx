@@ -9,6 +9,7 @@ import Experience from './components/Experience';
 import Portfolio from './components/Portfolio';
 import Competencies from './components/Competencies';
 import Footer from './components/Footer';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -29,42 +30,40 @@ function App() {
     }
   }, [darkMode]);
 
-  const toggleDarkMode = () => setDarkMode(!darkMode);
+  const toggleDarkMode = () => setDarkMode(darkMode);
 
   return (
     <div className="min-h-screen bg-white dark:bg-corporate-950 text-corporate-900 dark:text-corporate-100 font-sans selection:bg-accent-gold selection:text-white transition-colors duration-300">
       {/* Navigation */}
-      <nav className="fixed w-full z-50 bg-white/80 dark:bg-corporate-950/80 backdrop-blur-md border-b border-corporate-200 dark:border-corporate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="fixed w-full z-50 bg-white/90 dark:bg-corporate-950/90 backdrop-blur-md border-b border-corporate-200 dark:border-corporate-800">
+        <div className="section-container">
           <div className="flex justify-between h-20 items-center">
             <div className="flex-shrink-0 flex items-center">
-              <span className="text-xl font-serif font-bold tracking-tight text-accent-navy dark:text-corporate-100">
+              <span className="text-lg sm:text-xl font-serif font-bold tracking-tight text-accent-navy dark:text-corporate-100">
                 M. AL-DHUBAIBI <span className="text-accent-gold">YCPA</span>
               </span>
             </div>
 
-            <div className="hidden md:flex space-x-8 items-center">
-              <a href="#about" className="text-xs font-bold uppercase tracking-widest hover:text-accent-gold transition-colors">About</a>
-              <a href="#experience" className="text-xs font-bold uppercase tracking-widest hover:text-accent-gold transition-colors">Experience</a>
-              <a href="#portfolio" className="text-xs font-bold uppercase tracking-widest hover:text-accent-gold transition-colors">Portfolio</a>
-              <a href="#competencies" className="text-xs font-bold uppercase tracking-widest hover:text-accent-gold transition-colors">Expertise</a>
-              <button
-                onClick={toggleDarkMode}
-                className="p-2 rounded-full hover:bg-corporate-100 dark:hover:bg-corporate-800 transition-colors"
-                aria-label="Toggle Theme"
-              >
-                {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-              </button>
-              <a href="mailto:mhdhubaibi@gmail.com" className="btn-primary py-2 px-6 text-xs uppercase tracking-widest">
+            <div className="hidden md:flex space-x-6 lg:space-x-8 items-center">
+              <a href="#about" className="text-[10px] font-bold uppercase tracking-widest hover:text-accent-gold transition-colors">About</a>
+              <a href="#experience" className="text-[10px] font-bold uppercase tracking-widest hover:text-accent-gold transition-colors">Experience</a>
+              <a href="#portfolio" className="text-[10px] font-bold uppercase tracking-widest hover:text-accent-gold transition-colors">Portfolio</a>
+              <a href="#competencies" className="text-[10px] font-bold uppercase tracking-widest hover:text-accent-gold transition-colors">Expertise</a>
+
+              <ThemeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+
+              <a href="mailto:mhdhubaibi@gmail.com" className="btn-primary py-2 px-6 text-[10px] uppercase tracking-widest">
                 Contact
               </a>
             </div>
 
-            <div className="md:hidden flex items-center space-x-4">
-              <button onClick={toggleDarkMode} className="p-2">
-                {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2">
+            <div className="md:hidden flex items-center gap-4">
+              <ThemeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-2 text-corporate-900 dark:text-corporate-100"
+                aria-label="Toggle Menu"
+              >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>

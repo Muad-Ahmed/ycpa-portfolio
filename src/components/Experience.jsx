@@ -31,14 +31,14 @@ const experienceData = [
 
 const Experience = () => {
     return (
-        <section id="experience" className="section-container bg-corporate-50 dark:bg-corporate-900/50 py-24">
+        <section id="experience" className="bg-corporate-50 dark:bg-corporate-900/50 py-24">
             <div className="section-container">
                 <div className="mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">Professional Experience</h2>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-4">Professional Experience</h2>
                     <div className="w-20 h-1 bg-accent-gold"></div>
                 </div>
 
-                <div className="space-y-12 ">
+                <div className="space-y-12">
                     {experienceData.map((exp, index) => (
                         <motion.div
                             key={index}
@@ -46,20 +46,26 @@ const Experience = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2 }}
-                            className="grid grid-cols-1 lg:grid-cols-4 gap-8 group"
+                            className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8 group"
                         >
                             <div className="lg:col-span-1">
-                                <div className="flex items-center gap-4 mb-2">
+                                <div className="flex items-center gap-4 mb-3">
                                     <div className="p-3 bg-white dark:bg-corporate-800 shadow-sm border border-corporate-200 dark:border-corporate-700">
                                         {exp.logo}
                                     </div>
+                                    <div className="lg:hidden">
+                                        <p className="text-[10px] font-bold text-accent-gold tracking-widest uppercase">{exp.period}</p>
+                                        <h3 className="text-base font-bold text-corporate-900 dark:text-corporate-100 uppercase">{exp.company}</h3>
+                                    </div>
                                 </div>
-                                <p className="text-sm font-bold text-accent-gold tracking-widest uppercase mb-1">{exp.period}</p>
-                                <h3 className="text-lg font-bold text-corporate-900 dark:text-corporate-100 uppercase">{exp.company}</h3>
+                                <div className="hidden lg:block">
+                                    <p className="text-[10px] font-bold text-accent-gold tracking-widest uppercase mb-1">{exp.period}</p>
+                                    <h3 className="text-lg font-bold text-corporate-900 dark:text-corporate-100 uppercase leading-tight">{exp.company}</h3>
+                                </div>
                             </div>
 
-                            <div className="lg:col-span-3 bg-white dark:bg-corporate-950 p-8 border border-corporate-200 dark:border-corporate-800 shadow-sm group-hover:shadow-md transition-all duration-300">
-                                <h4 className="text-xl font-bold mb-6 text-accent-navy dark:text-corporate-300">{exp.role}</h4>
+                            <div className="lg:col-span-3 bg-white dark:bg-corporate-950 p-6 md:p-8 border border-corporate-200 dark:border-corporate-800 shadow-sm group-hover:shadow-md transition-all duration-300">
+                                <h4 className="text-lg md:text-xl font-bold mb-6 text-accent-navy dark:text-corporate-300">{exp.role}</h4>
                                 <ul className="space-y-4">
                                     {exp.highlights.map((item, id) => (
                                         <li key={id} className="flex gap-4 text-corporate-600 dark:text-corporate-400">

@@ -51,36 +51,36 @@ const Portfolio = () => {
     return (
         <section id="portfolio" className="py-24 bg-white dark:bg-corporate-950">
             <div className="section-container">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
                     <div className="max-w-2xl">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-4">Audit Expertise <span className="text-accent-gold">Portfolio</span></h2>
-                        <p className="text-corporate-600 dark:text-corporate-400 text-lg leading-relaxed">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-4">Audit Expertise <span className="text-accent-gold">Portfolio</span></h2>
+                        <p className="text-corporate-600 dark:text-corporate-400 text-base md:text-lg leading-relaxed font-sans mt-4">
                             A record of diligence across Yemen's most vital sectors, balancing global standards with local regulatory requirements.
                         </p>
                     </div>
-                    <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-accent-navy dark:text-corporate-400">
+                    <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-accent-navy dark:text-corporate-400">
                         <BarChart3 size={18} className="text-accent-gold" />
                         <span>Sector Multi-faceted</span>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {auditSectors.map((sector, index) => (
                         <motion.div
                             key={index}
                             whileHover={{ y: -8 }}
-                            className={`p-8 border rounded-sm transition-all duration-300 flex flex-col h-full ${sector.color}`}
+                            className={`p-6 md:p-8 border rounded-sm transition-all duration-300 flex flex-col h-full ${sector.color}`}
                         >
                             <div className="mb-6 text-accent-navy dark:text-corporate-200">
                                 {sector.icon}
                             </div>
                             <h3 className="text-xl font-bold mb-1 text-corporate-900 dark:text-corporate-100">{sector.title}</h3>
-                            <p className="text-sm font-bold text-accent-gold uppercase tracking-wider mb-4">{sector.client}</p>
-                            <p className="text-corporate-600 dark:text-corporate-400 leading-relaxed mb-6 flex-grow">
+                            <p className="text-[10px] font-bold text-accent-gold uppercase tracking-widest mb-4">{sector.client}</p>
+                            <p className="text-sm md:text-base text-corporate-600 dark:text-corporate-400 leading-relaxed mb-6 flex-grow">
                                 {sector.description}
                             </p>
                             <div className="pt-4 border-t border-black/5 dark:border-white/5 flex justify-between items-center">
-                                <span className="text-xs font-bold uppercase tracking-widest text-corporate-400">Case Study Verified</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-corporate-400">Case Study Verified</span>
                                 <div className="w-2 h-2 rounded-full bg-accent-gold animate-pulse"></div>
                             </div>
                         </motion.div>
